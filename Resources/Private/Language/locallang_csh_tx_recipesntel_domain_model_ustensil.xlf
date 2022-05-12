@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:recipes_ntel/Resources/Private/Language/locallang_csh_tx_recipesntel_domain_model_ustensil.xlf" date="2022-05-12T10:11:04Z" product-name="recipes_ntel">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<source>Nom</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

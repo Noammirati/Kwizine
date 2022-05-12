@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:recipes_ntel/Resources/Private/Language/locallang_csh_tx_recipesntel_domain_model_review.xlf" date="2022-05-12T10:11:04Z" product-name="recipes_ntel">
+		<header/>
+		<body>
+			<trans-unit id="title.description" resname="title.description">
+				<source>Titre</source>
+			</trans-unit>
+			<trans-unit id="content.description" resname="content.description">
+				<source>Contenu</source>
+			</trans-unit>
+			<trans-unit id="score.description" resname="score.description">
+				<source>Note</source>
+			</trans-unit>
+			<trans-unit id="author.description" resname="author.description">
+				<source>Auteur</source>
+			</trans-unit>
+			<trans-unit id="date.description" resname="date.description">
+				<source>Date de publication</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

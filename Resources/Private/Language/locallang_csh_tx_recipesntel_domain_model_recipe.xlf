@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:recipes_ntel/Resources/Private/Language/locallang_csh_tx_recipesntel_domain_model_recipe.xlf" date="2022-05-12T10:11:04Z" product-name="recipes_ntel">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<source>nom de la recette</source>
+			</trans-unit>
+			<trans-unit id="difficulty.description" resname="difficulty.description">
+				<source>difficulté</source>
+			</trans-unit>
+			<trans-unit id="prepare_time.description" resname="prepare_time.description">
+				<source>Temps de préparation (minutes)</source>
+			</trans-unit>
+			<trans-unit id="cooking_time.description" resname="cooking_time.description">
+				<source>Temps de cuisson (minutes)</source>
+			</trans-unit>
+			<trans-unit id="dish_type.description" resname="dish_type.description">
+				<source>Type de plat</source>
+			</trans-unit>
+			<trans-unit id="description.description" resname="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="nb_person.description" resname="nb_person.description">
+				<source>nombre de personne</source>
+			</trans-unit>
+			<trans-unit id="pictures.description" resname="pictures.description">
+				<source>illustrations</source>
+			</trans-unit>
+			<trans-unit id="avg_score.description" resname="avg_score.description">
+				<source>Moyenne des notes</source>
+			</trans-unit>
+			<trans-unit id="ingredients.description" resname="ingredients.description">
+				<source>ingredients</source>
+			</trans-unit>
+			<trans-unit id="themes.description" resname="themes.description">
+				<source>Theme</source>
+			</trans-unit>
+			<trans-unit id="ustensils.description" resname="ustensils.description">
+				<source>ustensils</source>
+			</trans-unit>
+			<trans-unit id="origin.description" resname="origin.description">
+				<source>origin</source>
+			</trans-unit>
+			<trans-unit id="reviews.description" resname="reviews.description">
+				<source>Avis</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

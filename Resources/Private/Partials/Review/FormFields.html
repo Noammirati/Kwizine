@@ -1,0 +1,22 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<label for="title">
+	<f:translate key="tx_recipesntel_domain_model_review.title" />
+</label><br />
+	<f:form.textfield property="title" id="title" /><br />
+<label for="content">
+	<f:translate key="tx_recipesntel_domain_model_review.content" />
+</label><br />
+	<f:form.textarea property="content" id="content" cols="40" rows="15" /><br />
+<label for="score">
+	<f:translate key="tx_recipesntel_domain_model_review.score" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="score" id="score" /><br />
+<label for="author">
+	<f:translate key="tx_recipesntel_domain_model_review.author" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="author" id="author" /><br />
+<label for="date">
+	<f:translate key="tx_recipesntel_domain_model_review.date" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="date" id="date" value="{review.date->f:format.date()}" /><br />
+</html>
