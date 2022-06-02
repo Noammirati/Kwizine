@@ -41,12 +41,17 @@ class RecipeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action list
      *
+     * @param ?\Vdap\RecipesVdap\Domain\Model\Origin $origin
+     * @param int $dishType
+     *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function listAction(): \Psr\Http\Message\ResponseInterface
+    public function listAction(?\Vdap\RecipesVdap\Domain\Model\Origin $origin = null, int $dishType = 0): \Psr\Http\Message\ResponseInterface
     {
-        $recipes = $this->recipeRepository->findAll();
+        $recipes = $this->recipeRepository->filter(new recipeFilter($origin, $dishType));
         $this->view->assign('recipes', $recipes);
+        $this->view->assign('origin', $origin);
+        $this->view->assign('dishType', $dishType);
         return $this->htmlResponse();
     }
 
@@ -79,6 +84,8 @@ class RecipeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function focusAction(): \Psr\Http\Message\ResponseInterface
     {
+        $recipes = $this->recipeRepository->logicAnd;
+        $this->view->assign('recipes', $recipes);
         return $this->htmlResponse();
     }
 }

@@ -22,4 +22,30 @@ namespace Ntel\RecipesNtel\Domain\Repository;
  */
 class RecipeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    public function filter(?\Vdap\RecipesVdap\Domain\Model\RecipeFilter $filter){
+        $query = $this->createQuery();
+        $specifications = [];
+        if($filter->getOrigin() != null){
+            $specifications[] = $query->equals('origin', $filter->getOrigin());
+        }
+
+        if($filter->getDishType() != 0){
+            $specifications[] = $query->equals('dishType', $filter->getDishType());
+        }
+
+        if(count($specifications) > 0){
+            $query->matching($query->logicalAnd($specifications));
+        }
+
+        return $query->execute();
+    }
+
+    public function focus(){
+        $query = $this->createQuery();
+
+        //$query->matching($query->contains('themes', 1));
+        // TODO limiter à trois éléments
+
+        return $query->execute();
+    }
 }

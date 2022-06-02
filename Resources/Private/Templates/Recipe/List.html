@@ -104,6 +104,21 @@
 
 
   <div class="container">
+
+    <f:section name="content">
+        <h1>Listing for recipe</h1>
+
+        <f:if condition="{origin}">
+            Origin : {origin.name}
+        </f:if>
+
+
+    </f:section>
+
+    <table class="">
+
+    </table>
+
     <f:for each="{recipes}" as="recipe">
       <div class="card">
         <div class="card__header">
