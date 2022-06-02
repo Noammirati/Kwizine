@@ -1,0 +1,48 @@
+<T3DataStructure>
+    <sheets>
+        <!--
+            ################################
+              SHEET General Settings
+            ################################
+        -->
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Configuration</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.orderBy>
+                        <TCEforms>
+                            <label>LLL:EXT:news/Resources/Private/Language/locallang_be.xlf:flexforms_general.orderBy</label>
+                            <config>
+                                <type>select</type>
+                                <itemsProcFunc>GeorgRinger\News\Hooks\ItemsProcFunc->user_orderBy</itemsProcFunc>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="1">
+                                        <numIndex index="0">Les mieux notées</numIndex>
+                                        <numIndex index="1">reviewAggregate</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <numIndex index="0">Les nouveautés</numIndex>
+                                        <numIndex index="1">uid</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.orderBy>
+                    <settings.limit>
+                        <TCEforms>
+                            <label>Nombre de recettes</label>
+                            <config>
+                                <type>input</type>
+                                <size>2</size>
+                            </config>
+                        </TCEforms>
+                    </settings.limit>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

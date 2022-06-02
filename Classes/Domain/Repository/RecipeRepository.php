@@ -33,17 +33,24 @@ class RecipeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             $specifications[] = $query->equals('dishType', $filter->getDishType());
         }
 
-        if(count($specifications) > 0){
+        if(!empty($specifications)){
             $query->matching($query->logicalAnd($specifications));
         }
 
         return $query->execute();
     }
 
-    public function focus(){
+    public function focus(int $limit, string $orderBy, array $themes){
         $query = $this->createQuery();
 
-        //$query->matching($query->contains('themes', 1));
+        $query->setOrderings([$orderBy => Queryinterface::ORDER_DESCENDING]);
+        $specifications = [];
+
+        foreach($themes as $theme){
+            $specifications[] = $query->contains('theme', $theme);
+        }
+
+        $query->setLimit(3);
         // TODO limiter à trois éléments
 
         return $query->execute();

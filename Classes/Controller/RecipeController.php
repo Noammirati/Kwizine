@@ -31,11 +31,26 @@ class RecipeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     protected $recipeRepository = null;
 
     /**
+     * recipeRepository
+     *
+     * @var \Ntel\RecipesNtel\Domain\Repository\ThemeRepository
+     */
+    protected $themeRepository = null;
+
+    /**
      * @param \Ntel\RecipesNtel\Domain\Repository\RecipeRepository $recipeRepository
      */
     public function injectRecipeRepository(\Ntel\RecipesNtel\Domain\Repository\RecipeRepository $recipeRepository)
     {
         $this->recipeRepository = $recipeRepository;
+    }
+
+    /**
+     * @param \Ntel\RecipesNtel\Domain\Repository\ThemeRepository $themeRepository
+     */
+    public function injectThemeRepository(\Ntel\RecipesNtel\Domain\Repository\ThemeRepository $themeRepository)
+    {
+        $this->themeRepository = $themeRepository;
     }
 
     /**
@@ -84,7 +99,12 @@ class RecipeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function focusAction(): \Psr\Http\Message\ResponseInterface
     {
-        $recipes = $this->recipeRepository->logicAnd;
+        $limit = (int) $this->settings['limit'];
+        $orderBy = (String) $this->settings['orderBy'];
+        $themes = array_map(
+            static function($x){return intval($x);},
+            explode (',', $this->settings['themes']));
+        $recipes = $this->recipeRepository->focus($limit, $orderBy);
         $this->view->assign('recipes', $recipes);
         return $this->htmlResponse();
     }

@@ -22,4 +22,8 @@ namespace Ntel\RecipesNtel\Domain\Repository;
  */
 class ThemeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    public function findByUIDList(array $uids){
+        $query = $this->createQuery();
+        $query->watching($query);
+    }
 }
