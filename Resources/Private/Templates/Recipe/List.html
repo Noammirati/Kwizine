@@ -1,39 +1,124 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
-This template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Recipe:
-          List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="content">
-    <h1>Listing for Recipe</h1>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
 
-    <f:flashMessages />
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      margin-block: 2rem;
+      gap: 2rem;
+    }
 
-    <table class="tx_recipesntel">
-        <tr>
-            <th><f:translate key="tx_recipesntel_domain_model_recipe.name" /></th>
-            <th><f:translate key="tx_recipesntel_domain_model_recipe.difficulty" /></th>
-            <th><f:translate key="tx_recipesntel_domain_model_recipe.prepare_time" /></th>
-            <th><f:translate key="tx_recipesntel_domain_model_recipe.cooking_time" /></th>
-            <th><f:translate key="tx_recipesntel_domain_model_recipe.dish_type" /></th>
-            <th><f:translate key="tx_recipesntel_domain_model_recipe.description" /></th>
-            <th><f:translate key="tx_recipesntel_domain_model_recipe.nb_person" /></th>
-            <th><f:translate key="tx_recipesntel_domain_model_recipe.pictures" /></th>
-            <th><f:translate key="tx_recipesntel_domain_model_recipe.avg_score" /></th>
-            <th></th>
-            <th></th>
-        </tr>
-        <f:for each="{recipes}" as="recipe">
-            <tr>
+    img {
+      max-height: 150pt;
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: clamp(20rem, calc(20rem + 2vw), 22rem);
+      overflow: hidden;
+      box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+      border-radius: 1em;
+      background: #ECE9E6;
+      background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+
+    }
+
+    .card__body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+
+    .tag {
+      align-self: flex-start;
+      padding: .25em .75em;
+      border-radius: 1em;
+      font-size: .75rem;
+    }
+
+    .tag+.tag {
+      margin-left: .5em;
+    }
+
+    .tag-blue {
+      background: #56CCF2;
+      background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+      color: #fafafa;
+    }
+
+    .tag-brown {
+      background: #D1913C;
+      background: linear-gradient(to bottom, #FFD194, #D1913C);
+      color: #fafafa;
+    }
+
+    .tag-red {
+      background: #cb2d3e;
+      background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+      color: #fafafa;
+    }
+
+    .card__body h4 {
+      font-size: 1.5rem;
+      text-transform: capitalize;
+    }
+
+    .card__footer {
+      display: flex;
+      padding: 1rem;
+      margin-top: auto;
+    }
+
+    .user {
+      display: flex;
+      gap: .5rem;
+    }
+
+    .user__image {
+      border-radius: 50%;
+    }
+
+    .user__info>small {
+      color: #666;
+    }
+  </style>
+  <f:flashMessages />
+
+
+  <div class="container">
+    <f:for each="{recipes}" as="recipe">
+      <div class="card">
+        <div class="card__header">
+          <f:image image="{recipe.pictures.originalResource}" />
+        </div>
+        <div class="card__body">
+          <span class="tag tag-blue">{recipe.dishType}</span>
+          <h4>{recipe.name}</h4>
+          <f:format.html>{recipe.description}</f:format.html>
+        </div>
+        <div class="card__footer">
+          <small>{recipe.nbPerson}</small>
+        </div>
+      </div>
+      <!-- <tr>
                 <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.name}</f:link.action></td>
                 <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.difficulty}</f:link.action></td>
                 <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.prepareTime}</f:link.action></td>
@@ -45,10 +130,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
                 <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.avgScore}</f:link.action></td>
                 <td><f:link.action action="edit" arguments="{recipe : recipe}">Edit</f:link.action></td>
                 <td><f:link.action action="delete" arguments="{recipe : recipe}">Delete</f:link.action></td>
-            </tr>
-        </f:for>
-    </table>
+            </tr> -->
+    </f:for>
 
-    <f:link.action action="new">New Recipe</f:link.action>
+  </div>
+
+  <f:link.action action="new">New Recipe</f:link.action>
 </f:section>
+
 </html>

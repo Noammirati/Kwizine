@@ -137,7 +137,11 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['-- Label --', 0],
+                    ['Starter', 0],
+                    ['Main Course', 1],
+                    ['Dessert', 2],
+                    ['Cocktail', 3],
+                    ['Snack', 4],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
