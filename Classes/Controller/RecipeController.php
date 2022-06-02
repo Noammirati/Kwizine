@@ -41,12 +41,12 @@ class RecipeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action list
      *
-     * @param ?\Vdap\RecipesVdap\Domain\Model\Origin $origin
+     * @param \Ntel\RecipesNtel\\Domain\Model\Origin $origin
      * @param int $dishType
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function listAction(?\Vdap\RecipesVdap\Domain\Model\Origin $origin = null, int $dishType = 0): \Psr\Http\Message\ResponseInterface
+    public function listAction(\Ntel\RecipesNtel\Domain\Model\Origin $origin = null, int $dishType = 0): \Psr\Http\Message\ResponseInterface
     {
         $recipes = $this->recipeRepository->filter(new recipeFilter($origin, $dishType));
         $this->view->assign('recipes', $recipes);

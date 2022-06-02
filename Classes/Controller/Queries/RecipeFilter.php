@@ -25,7 +25,8 @@ class RecipeFilter{
     private $origin;
     private $typeOfDish;
 
-    public function filter(?\Vdap\RecipesVdap\Domain\Model\ ){
-        $this->origin
+    public function filter(\Ntel\RecipesNtel\Domain\Model\Origin $origin, int $dishType = 0): \Psr\Http\Message\ResponseInterface {
+        $this->origin;
+        $this->dish_type;
     }
 }

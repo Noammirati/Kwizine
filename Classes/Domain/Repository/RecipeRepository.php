@@ -22,7 +22,7 @@ namespace Ntel\RecipesNtel\Domain\Repository;
  */
 class RecipeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-    public function filter(?\Vdap\RecipesVdap\Domain\Model\RecipeFilter $filter){
+    public function filter(\Ntel\RecipesNtel\Domain\Model\RecipeFilter $filter){
         $query = $this->createQuery();
         $specifications = [];
         if($filter->getOrigin() != null){
